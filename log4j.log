@@ -1,0 +1,99 @@
+20:59:23,652  INFO Util:31 - Util.conectar - lendo arquivo util.properties: 
+20:59:23,656  INFO Util:38 - sgbd => postgresql
+20:59:23,656  INFO Util:39 - banco => agenda
+20:59:23,656  INFO Util:40 - ip => localhost
+20:59:23,657  INFO Util:45 - configurando postgresql
+20:59:23,682 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+20:59:23,809  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+20:59:23,881  INFO Version:44 - HHH000412: Hibernate ORM core version 6.3.1.Final
+20:59:23,928 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+20:59:23,929  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+20:59:24,281  WARN pooling:80 - HHH10001002: Using built-in connection pool (not intended for production use)
+20:59:24,285  INFO pooling:135 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+20:59:24,285  INFO pooling:157 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/agenda]
+20:59:24,285  INFO pooling:166 - HHH10001001: Connection properties: {password=****, user=postgres}
+20:59:24,286  INFO pooling:170 - HHH10001003: Autocommit mode: false
+20:59:24,289  INFO pooling:366 - HHH10001115: Connection pool size: 20 (min=1)
+20:59:24,547  WARN deprecation:152 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+20:59:25,559  INFO EntityInstantiatorPojoStandard:53 - HHH000182: No default (no-argument) constructor for class: models.Venda (class must be instantiated by Interceptor)
+20:59:25,813  INFO JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+20:59:25,841  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6acffb2d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+20:59:25,869 DEBUG SQL:135 - create table Produto (nome varchar(255) not null, preco float(53) not null, tipoProduto_nome varchar(255), primary key (nome))
+20:59:25,915 DEBUG SQL:135 - create table TipoProduto (nome varchar(255) not null, primary key (nome))
+20:59:25,963 DEBUG SQL:135 - create table Venda (id serial not null, data varchar(255), desconto float(53) not null, valorpago float(53) not null, valortotal float(53) not null, primary key (id))
+20:59:26,009 DEBUG SQL:135 - alter table if exists Produto add constraint FKfb25p5mlbg1fnjk6rlam73dri foreign key (tipoProduto_nome) references TipoProduto
+20:59:26,029 DEBUG SQL:135 - alter table if exists Venda_Produto add constraint FK5h9o6qgdcxpap5esqynnonj8r foreign key (produtos_nome) references Produto
+20:59:26,030 DEBUG SQL:135 - alter table if exists Venda_Produto add constraint FKjwi5uuvpt8erb48dvu687xfdu foreign key (Venda_id) references Venda
+20:59:26,032 DEBUG SQL:135 - alter table if exists Venda_Produto add constraint FKjbrjgpo0k4nvbax0lh0txn3g6 foreign key (produto_nome) references Produto
+20:59:26,413 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,414 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+20:59:26,449 DEBUG SQL:135 - insert into TipoProduto (nome) values (?)
+20:59:26,451 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+20:59:26,461 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,461 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+20:59:26,462 DEBUG SQL:135 - insert into TipoProduto (nome) values (?)
+20:59:26,462 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+20:59:26,475 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,475 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Doces]
+20:59:26,476 DEBUG SQL:135 - insert into TipoProduto (nome) values (?)
+20:59:26,476 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Doces]
+20:59:26,478 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,478 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Diversos]
+20:59:26,480 DEBUG SQL:135 - insert into TipoProduto (nome) values (?)
+20:59:26,480 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Diversos]
+20:59:26,486 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+20:59:26,487 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Chocolate]
+20:59:26,488 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,488 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Doces]
+20:59:26,502 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+20:59:26,503 TRACE bind:24 - binding parameter (1:DOUBLE) <- [4.0]
+20:59:26,504 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Doces]
+20:59:26,504 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Chocolate]
+20:59:26,509 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+20:59:26,509 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Gelatina de Morango]
+20:59:26,510 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,511 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Doces]
+20:59:26,512 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+20:59:26,512 TRACE bind:24 - binding parameter (1:DOUBLE) <- [3.25]
+20:59:26,512 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Doces]
+20:59:26,512 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Gelatina de Morango]
+20:59:26,514 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+20:59:26,514 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Coca-Cola]
+20:59:26,515 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,515 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+20:59:26,516 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+20:59:26,516 TRACE bind:24 - binding parameter (1:DOUBLE) <- [4.5]
+20:59:26,517 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Bebidas]
+20:59:26,517 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Coca-Cola]
+20:59:26,518 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+20:59:26,519 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Café]
+20:59:26,520 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,520 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+20:59:26,521 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+20:59:26,522 TRACE bind:24 - binding parameter (1:DOUBLE) <- [2.0]
+20:59:26,522 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Bebidas]
+20:59:26,522 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Café]
+20:59:26,523 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+20:59:26,524 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Banana]
+20:59:26,524 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,525 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+20:59:26,526 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+20:59:26,526 TRACE bind:24 - binding parameter (1:DOUBLE) <- [0.5]
+20:59:26,526 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Frutas]
+20:59:26,526 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Banana]
+20:59:26,528 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+20:59:26,528 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Morango]
+20:59:26,528 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+20:59:26,529 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+20:59:26,530 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+20:59:26,530 TRACE bind:24 - binding parameter (1:DOUBLE) <- [1.0]
+20:59:26,530 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Frutas]
+20:59:26,530 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Morango]
+20:59:26,534 DEBUG SQL:135 - insert into Venda (data,desconto,valorpago,valortotal) values (?,?,?,?)
+20:59:26,534 TRACE bind:35 - binding parameter (1:VARCHAR) <- [null]
+20:59:26,535 TRACE bind:24 - binding parameter (2:DOUBLE) <- [0.0]
+20:59:26,535 TRACE bind:24 - binding parameter (3:DOUBLE) <- [0.0]
+20:59:26,535 TRACE bind:24 - binding parameter (4:DOUBLE) <- [0.0]
+20:59:26,551  INFO pooling:601 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/agenda]
+20:59:26,554 ERROR pooling:470 - Connection leak detected: there are 1 unclosed connections upon shutting down pool jdbc:postgresql://localhost:5432/agenda
+20:59:26,556 ERROR pooling:301 - Connection leak detected: there are 1 unclosed connections
