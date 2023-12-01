@@ -1,0 +1,76 @@
+14:14:42,237  INFO Util:31 - Util.conectar - lendo arquivo util.properties: 
+14:14:42,240  INFO Util:38 - sgbd => postgresql
+14:14:42,241  INFO Util:39 - banco => vendaKRAMER
+14:14:42,241  INFO Util:40 - ip => localhost
+14:14:42,241  INFO Util:45 - configurando postgresql
+14:14:42,335 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+14:14:42,470  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+14:14:42,534  INFO Version:44 - HHH000412: Hibernate ORM core version 6.3.1.Final
+14:14:42,591 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+14:14:42,593  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+14:14:43,022  WARN pooling:80 - HHH10001002: Using built-in connection pool (not intended for production use)
+14:14:43,029  INFO pooling:135 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+14:14:43,030  INFO pooling:157 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/vendaKRAMER]
+14:14:43,030  INFO pooling:166 - HHH10001001: Connection properties: {password=****, user=postgres}
+14:14:43,030  INFO pooling:170 - HHH10001003: Autocommit mode: false
+14:14:43,033  INFO pooling:366 - HHH10001115: Connection pool size: 20 (min=1)
+14:14:43,498  WARN deprecation:152 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+14:14:44,946  INFO JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:14:44,982  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@10492b90] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+14:14:45,818 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:14:45,844 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,846 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:14:45,857 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,858 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:14:45,860 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,860 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+14:14:45,929 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:14:45,933 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,933 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:14:45,935 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,936 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:14:45,938 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,938 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+14:14:45,943 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:14:45,945 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,946 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:14:45,948 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,948 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:14:45,950 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,950 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+14:14:45,955 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:14:45,958 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,958 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:14:45,960 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,961 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:14:45,963 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,963 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+14:14:45,968 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:14:45,969 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,970 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:14:45,972 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,972 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:14:45,975 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,975 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+14:14:45,980 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:14:45,981 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,982 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:14:45,985 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,985 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:14:45,987 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:14:45,987 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+14:15:20,741 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+14:15:20,741 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Pablinho]
+14:15:20,745 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:15:20,745 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:15:20,765 DEBUG SQL:135 - insert into Produto (preco,tipoProduto_nome,nome) values (?,?,?)
+14:15:20,767 TRACE bind:24 - binding parameter (1:DOUBLE) <- [10000.0]
+14:15:20,768 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Frutas]
+14:15:20,768 TRACE bind:24 - binding parameter (3:VARCHAR) <- [Pablinho]
+14:15:20,783 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.Produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (Produto_Venda v1_0 join Venda v1_1 on v1_1.id=v1_0.vendas_id) on p1_0.nome=v1_0.Produto_nome order by p1_0.nome
+14:15:20,788 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:15:20,789 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+14:15:20,790 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:15:20,791 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+14:15:20,807 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+14:15:20,808 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
