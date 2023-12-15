@@ -1,11 +1,6 @@
-/**********************************
- * IFPB - SI
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- **********************************/
-
 package daojpa;
 
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.NoResultException;
@@ -31,6 +26,44 @@ public class DAOVenda extends DAO<Venda> {
         return query.getResultList();
     }
 
-    // Se houver algum relacionamento específico para Venda, adicione métodos aqui.
+    public List<Venda> vendasDataX(Date data) {
+        try {
+            TypedQuery<Venda> q = manager.createQuery("select v from Venda v where v.data = :data", Venda.class);
+            q.setParameter("data", data);
+            return q.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public List<Venda> vendasComMaisDeNProdutos(int quantidadeMinima) {
+        TypedQuery<Venda> q = manager.createQuery(
+                "select v from Venda v where size(v.produtos) > :quantidadeMinima",
+                Venda.class
+        );
+        q.setParameter("quantidadeMinima", quantidadeMinima);
+
+        return q.getResultList();
+    }
+
+    public List<Venda> vendasComProdutoDePrecoX(double precoDesejado) {
+        TypedQuery<Venda> q = manager.createQuery(
+                "select distinct v from Venda v join v.produtos p where p.preco = :precoDesejado",
+                Venda.class
+        );
+        q.setParameter("precoDesejado", precoDesejado);
+
+        return q.getResultList();
+    }
+
+    public List<Venda> vendasComProdutoP(String nomeProdutoDesejado) {
+        TypedQuery<Venda> q = manager.createQuery(
+                "select distinct v from Venda v join v.produtos p where p.nome = :nomeProdutoDesejado",
+                Venda.class
+        );
+        q.setParameter("nomeProdutoDesejado", nomeProdutoDesejado);
+
+        return q.getResultList();
+    }
 
 }

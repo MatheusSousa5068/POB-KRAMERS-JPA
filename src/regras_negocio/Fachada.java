@@ -1,6 +1,9 @@
 package regras_negocio;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import daojpa.DAO;
@@ -110,10 +113,23 @@ public class Fachada {
 		return daovenda.read(id);
 	}
 
-	public static List<Venda> vendaDataX(String data) {
-		DAO.begin();
-		List<Venda> vendas = daovenda.vendasDataX(data);
-		DAO.commit();
+	public static List<Venda> vendaDataX(String dataString) {
+		List<Venda> vendas = null;
+
+		try {
+			DAO.begin();
+
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			Date data = dateFormat.parse(dataString);
+
+			vendas = daovenda.vendasDataX(data);
+
+			DAO.commit();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} finally {
+			DAO.close();
+		}
 
 		return vendas;
 	}
@@ -146,11 +162,6 @@ public class Fachada {
 		if (produto == null) {
 			throw new Exception("Produto não existe: " + nomeProduto);
 		}
-
-//		List<Venda> vendas = daovenda.vendasComProdutoP(nomeProduto);
-//		for(Venda v: vendas) {
-//			v.remover(produto);
-//		}
 	
 		TipoProduto tipoProduto = produto.getTipoproduto();
 		tipoProduto.remover(produto);
@@ -255,4 +266,5 @@ public class Fachada {
 		tipoproduto.remover(produto);
 		DAO.commit();
 	}
+
 }

@@ -1,50 +1,38 @@
 package appconsole;
-/**********************************
- * IFPB - SI
- * Persistencia de Objetos
- * Prof. Fausto Ayres
- **********************************/
 
-import models.Pessoa;
+import models.Venda;
 import regras_negocio.Fachada;
-
 
 public class Consultar {
 
-	public Consultar(){
-
+	public Consultar() {
 		try {
 			Fachada.inicializar();
-			System.out.println("\n1.procurando nome jo ");
-			for(Pessoa p : Fachada.consultarPessoas("jo")) 
-				System.out.println(p);
 
-			System.out.println("\n2.listar pessoas que nasceram no mes 02");
-			for(Pessoa p : Fachada.consultarMesNascimento("02")) 
-				System.out.println(p);
-			
-			System.out.println("\n3.procurando quem tem dois telefones " );
-			for(Pessoa p : Fachada.consultarPessoasNTelefones(2) ) 
-				System.out.println(p);
+			System.out.println("consultas... \n");
+			System.out.println("\nVendas na data 01/09/2023");
+			for(Venda v : Fachada.vendaDataX("01/09/2023"))
+				System.out.println(v);
 
-			System.out.println("\n4.maria tem telefone celular?\n"+
-					Fachada.temTelefoneCelular("maria") );
 
-			System.out.println("\n5.maria tem telefone fixo\n"+
-					Fachada.temTelefoneFixo("maria") );
+			System.out.println("\nVendas com mais de 1 Produto");
+			for(Venda v: Fachada.vendasComMaisDeNProdutos(1))
+				System.out.println(v);
+
+
+			System.out.println("\nVendas com produtos de preço de R$4,50");
+			for(Venda v : Fachada.vendasComProdutoDePrecoX(4.5))
+				System.out.println(v);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		Fachada.finalizar();
-		System.out.println("\nfim do programa");
+		System.out.println("\nfim do programa !");
 	}
 
-
-	//=================================================
 	public static void main(String[] args) {
 		new Consultar();
 	}
 }
-
