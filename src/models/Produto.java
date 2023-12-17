@@ -23,12 +23,7 @@ public class Produto {
 
     private double preco;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-//    @JoinTable(
-//        name = "venda_produto",
-//        joinColumns = @JoinColumn(name = "produto_nome"),
-//        inverseJoinColumns = @JoinColumn(name = "venda_id")
-//    )
+    @ManyToMany(mappedBy = "produtos", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
     private List<Venda> vendas = new ArrayList<>();
 
     public Produto() {

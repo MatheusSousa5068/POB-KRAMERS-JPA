@@ -3,13 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 @Entity
 public class Venda {
@@ -21,6 +15,11 @@ public class Venda {
     private String data;
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "venda_produto",
+            joinColumns = @JoinColumn(name = "venda_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_nome")
+    )
     private List<Produto> produtos = new ArrayList<>();
 
     private double desconto;

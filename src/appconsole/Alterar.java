@@ -7,7 +7,7 @@ public class Alterar {
         try {
             Fachada.inicializar();
             Fachada.removerProdutoDeVenda(1, "Banana");
-            System.out.println("banana removido de venda 1");
+            System.out.println("Banana removido de venda 1");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
