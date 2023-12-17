@@ -86,16 +86,17 @@ public class Fachada {
 		if (venda == null)
 			throw new Exception("Venda com id" + idVenda + "não existe");
 
-		for (Produto p : venda.getProdutos()) {
-			if (p.getNome().equals(nomeProduto)) {
-				venda.remover(p);
-				return;
-			}
+		Produto produto = daoproduto.read(nomeProduto);
+
+		try {
+			venda.remover(produto);
+		} catch (Exception e) {
+			throw new Exception(e);
 		}
+
 
 		DAO.commit();
 
-		throw new Exception("Produto não existe em venda");
 	}
 
 	public static Produto localizarProduto(String nome) {
@@ -116,20 +117,12 @@ public class Fachada {
 	public static List<Venda> vendaDataX(String dataString) {
 		List<Venda> vendas = null;
 
-		try {
-			DAO.begin();
+		DAO.begin();
 
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-			Date data = dateFormat.parse(dataString);
+//			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//			Date data = dateFormat.parse(dataString);
 
-			vendas = daovenda.vendasDataX(data);
-
-			DAO.commit();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		} finally {
-			DAO.close();
-		}
+		vendas = daovenda.vendasDataX(dataString);
 
 		return vendas;
 	}
@@ -165,6 +158,14 @@ public class Fachada {
 	
 		TipoProduto tipoProduto = produto.getTipoproduto();
 		tipoProduto.remover(produto);
+
+		// removendo vendas onde produto aparece
+		List<Venda> vendasComProdutoP = daovenda.vendasComProdutoP(nomeProduto);
+		for(Venda v: vendasComProdutoP) {
+			v.remover(produto);
+		}
+
+		daoproduto.delete(produto);
 		
 		DAO.commit();
 	}

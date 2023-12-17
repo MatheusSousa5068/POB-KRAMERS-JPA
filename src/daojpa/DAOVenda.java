@@ -26,7 +26,7 @@ public class DAOVenda extends DAO<Venda> {
         return query.getResultList();
     }
 
-    public List<Venda> vendasDataX(Date data) {
+    public List<Venda> vendasDataX(String data) {
         try {
             TypedQuery<Venda> q = manager.createQuery("select v from Venda v where v.data = :data", Venda.class);
             q.setParameter("data", data);

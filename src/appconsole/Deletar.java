@@ -7,11 +7,11 @@ public class Deletar {
 	public Deletar() {
 		try {
 			Fachada.inicializar();
-			Fachada.excluirTipoProduto("Doces");		 
+			Fachada.excluirTipoProduto("Doces");
 			System.out.println("Doces excluído");
 			
-//            Fachada.excluirProduto("Chocolate");
-//			System.out.println("Chocolate Excluído");
+            Fachada.excluirProduto("Chocolate");
+			System.out.println("Chocolate Excluído");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
