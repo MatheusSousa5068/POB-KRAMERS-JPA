@@ -1,0 +1,54 @@
+16:09:14,791  INFO Util:31 - Util.conectar - lendo arquivo util.properties: 
+16:09:14,795  INFO Util:38 - sgbd => postgresql
+16:09:14,796  INFO Util:39 - banco => vendaKRAMER
+16:09:14,796  INFO Util:40 - ip => localhost
+16:09:14,796  INFO Util:45 - configurando postgresql
+16:09:14,829 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+16:09:14,934  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+16:09:15,001  INFO Version:44 - HHH000412: Hibernate ORM core version 6.3.1.Final
+16:09:15,037 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+16:09:15,038  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+16:09:15,320  WARN pooling:80 - HHH10001002: Using built-in connection pool (not intended for production use)
+16:09:15,324  INFO pooling:135 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+16:09:15,324  INFO pooling:157 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/vendaKRAMER]
+16:09:15,324  INFO pooling:166 - HHH10001001: Connection properties: {password=****, user=postgres}
+16:09:15,324  INFO pooling:170 - HHH10001003: Autocommit mode: false
+16:09:15,327  INFO pooling:366 - HHH10001115: Connection pool size: 20 (min=1)
+16:09:15,567  WARN deprecation:152 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+16:09:16,636  INFO JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+16:09:16,655  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@32082a59] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+16:09:17,061 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (venda_produto v1_0 join Venda v1_1 on v1_1.id=v1_0.venda_id) on p1_0.nome=v1_0.produto_nome order by p1_0.nome
+16:09:17,079 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:17,080 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+16:09:17,092 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:17,092 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+16:09:17,096 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:17,096 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+16:09:19,914 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome from Produto p1_0 where p1_0.nome=?
+16:09:19,915 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Morango]
+16:09:19,916 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:19,916 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+16:09:19,921 DEBUG SQL:135 - select p1_0.tipoProduto_nome,p1_0.nome,p1_0.preco from Produto p1_0 where p1_0.tipoProduto_nome=?
+16:09:19,921 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+16:09:19,934 DEBUG SQL:135 - select distinct v1_0.id,v1_0.data,v1_0.desconto,v1_0.valorpago,v1_0.valortotal from Venda v1_0 join venda_produto p1_0 on v1_0.id=p1_0.venda_id where p1_0.produto_nome=?
+16:09:19,935 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Morango]
+16:09:19,936 DEBUG SQL:135 - select p1_0.venda_id,p1_1.nome,p1_1.preco,tp1_0.nome from venda_produto p1_0 join Produto p1_1 on p1_1.nome=p1_0.produto_nome left join TipoProduto tp1_0 on tp1_0.nome=p1_1.tipoProduto_nome where p1_0.venda_id=?
+16:09:19,937 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+16:09:19,960 DEBUG SQL:135 - update Venda set data=?,desconto=?,valorpago=?,valortotal=? where id=?
+16:09:19,962 TRACE bind:24 - binding parameter (1:VARCHAR) <- [01/09/2023]
+16:09:19,962 TRACE bind:24 - binding parameter (2:DOUBLE) <- [50.0]
+16:09:19,962 TRACE bind:24 - binding parameter (3:DOUBLE) <- [0.0]
+16:09:19,963 TRACE bind:24 - binding parameter (4:DOUBLE) <- [0.0]
+16:09:19,963 TRACE bind:24 - binding parameter (5:INTEGER) <- [1]
+16:09:19,974 DEBUG SQL:135 - delete from venda_produto where venda_id=?
+16:09:19,974 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+16:09:19,976 DEBUG SQL:135 - delete from Produto where nome=?
+16:09:19,976 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Morango]
+16:09:19,981 DEBUG SQL:135 - select p1_0.nome,p1_0.preco,p1_0.tipoProduto_nome,v1_0.produto_nome,v1_1.id,v1_1.data,v1_1.desconto,v1_1.valorpago,v1_1.valortotal from Produto p1_0 left join (venda_produto v1_0 join Venda v1_1 on v1_1.id=v1_0.venda_id) on p1_0.nome=v1_0.produto_nome order by p1_0.nome
+16:09:19,983 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:19,983 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Frutas]
+16:09:19,984 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:19,985 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Bebidas]
+16:09:19,986 DEBUG SQL:135 - select tp1_0.nome from TipoProduto tp1_0 where tp1_0.nome=?
+16:09:19,986 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Nao-Alocado]
+16:09:21,734  INFO pooling:601 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/vendaKRAMER]
